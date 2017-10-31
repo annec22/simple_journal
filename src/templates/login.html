@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Login | Simple Journal{% endblock %}
+{% block content %}
+<div class="container login-register-form">
+    <form id="login-form" action="/auth/login" method="post">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit-button">Log in</button>
+    </form>
+        <a href="/register" class="btn btn-success mt-1" id="sign-up-button">Sign-up for a free account.</a>
+</div>
+{% endblock %}
