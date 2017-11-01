@@ -18,3 +18,8 @@ instance/
 
 #App Engine
 keys.json
+keys.py
+
+#pycharm
+.idea
+.idea/

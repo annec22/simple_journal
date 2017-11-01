@@ -6,13 +6,13 @@ from src.common.database import Database
 
 class Entry(object):
 
-    def __init__(self, user_id, title, content, date_event, _id=None):
+    def __init__(self, user_id, title, content, date_event, _id=None, date_last_modified=None):
         self.user_id = user_id
         self.title = title
         self.content = content
         self.date_event = date_event
         self._id = uuid.uuid4().hex if _id is None else _id
-        self.date_last_modified = datetime.now()
+        self.date_last_modified = datetime.now().strftime("%d/%m/%Y %I:%M:%S %p")
 
     @staticmethod
     def edit_entry(entry_id, update):
@@ -20,7 +20,8 @@ class Entry(object):
 
     @staticmethod
     def get_entries_by_user_id(user_id):
-        return [entry for entry in Database.find('entries', {"user_id": user_id})]
+        entries = [entry for entry in Database.find('entries', {"user_id": user_id})]
+        return entries
 
     @staticmethod
     def get_entry_by_id(entry_id):

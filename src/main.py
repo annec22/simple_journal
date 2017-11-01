@@ -1,12 +1,15 @@
+import json
+
 from flask import \
     Flask, \
     render_template, \
     session, \
     redirect, \
     url_for, \
-    request
+    request, make_response, Response
 
 from src.common.database import Database
+from src.models.entry import Entry
 from src.models.user import User
 
 app = Flask(__name__)
@@ -72,9 +75,6 @@ def user_logout():
     User.logout()
     return redirect(url_for('home_template'))
 
-def is_logged_in():
-    return 'username' in session and session['username'] is not None
-
 @app.route('/new_entry', methods=['POST'])
 def new_entry():
     user = User.get_user_by_username(session['username'])
@@ -85,9 +85,22 @@ def new_entry():
 
     return redirect(url_for('home_template'))
 
-@app.route('/save_to_drive')
-def save_entries_to_google_drive():
-    users = User.get_user_by_username(session['username'])
+@app.route('/save_to_local')
+def get_json_entries():
+    user = User.get_user_by_username(session['username'])
+    entries = user.get_user_entries_by_user_id()
+    data = [Entry(**entry).json() for entry in entries]
+    data = json.dumps([Entry(**entry).json() for entry in entries])
+    response = make_response()
+    response.data = data
+    response.mimetype = "application/json"
+    response.headers['content-disposition']= 'attachment;filename="entries.json"'
+    return response
+
+
+
+def is_logged_in():
+    return 'username' in session and session['username'] is not None
 
 if __name__ == "__main__":
     app.run(debug=True)
