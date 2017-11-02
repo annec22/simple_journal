@@ -23,3 +23,7 @@ keys.py
 #pycharm
 .idea
 .idea/
+
+#logs
+logs
+logs/
