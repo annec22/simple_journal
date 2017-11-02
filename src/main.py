@@ -26,13 +26,13 @@ def home_template():
 
         entries = user.get_user_entries_by_user_id()
 
-        return render_template('home.html', name=user.name, active=is_logged_in(), entries=entries)
+        return render_template('home.html', name=user.name, active=is_logged_in(), entries=entries, journal_active="active")
     else:
         return redirect(url_for('login_template'))
 
 @app.route('/about')
 def about_template():
-    return render_template('about.html', active=is_logged_in())
+    return render_template('about.html', active=is_logged_in(), about_active="active")
 
 @app.route('/login')
 def login_template():

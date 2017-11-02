@@ -2,17 +2,33 @@
 {% block title %} Login | Simple Journal{% endblock %}
 {% block content %}
 <div class="container login-register-form">
-    <form id="login-form" action="/auth/login" method="post">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" class="form-control">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+            <form role="form" id="login-form" action="/auth/login" method="post">
+                <fieldset>
+                    <h3>Please Sign In</h3>
+                    <hr class="colorgraph">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" class="form-control">
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <button type="submit" class="btn btn-primary btn-block " id="submit-button">Log in</button>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <a href="/register" class="btn btn-success btn-block" id="sign-up-button">Sign-up for a free account.</a>
+                        </div>
+                    </div>
+
+                    <hr class="colorgraph">
+                </fieldset>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary" id="submit-button">Log in</button>
-    </form>
-        <a href="/register" class="btn btn-success mt-1" id="sign-up-button">Sign-up for a free account.</a>
+    </div>
 </div>
 {% endblock %}

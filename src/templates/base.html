@@ -12,14 +12,14 @@
   <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
       <div class="container">
-        <a class="navbar-brand " href="/" target="_blank">Simple Journal</a>
+        <a class="navbar-brand " href="/">Simple Journal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="/">Journal <span class="sr-only"></span></a>
-            <a class="nav-item nav-link" href="/about">About</a>
+            <a class="nav-item nav-link {{ journal_active }}" href="/">Journal <span class="sr-only"></span></a>
+            <a class="nav-item nav-link {{ about_active }}" href="/about">About</a>
             {% if active==true %}
               <a class="nav-item nav-link" href="/logout">Logout</a>
             {% endif %}

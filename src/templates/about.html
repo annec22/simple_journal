@@ -1,4 +1,22 @@
 {% extends "base.html" %}
 {% block title %} About | Simple Journal{% endblock %}
 {% block content %}
+
+<div class="jumbotron">
+    <h1 class="mt-0">About Simple Journal</h1>
+    <p class="lead">This is a simple web app project which is still in-progress.</p>
+        <p>Future improvements include: </p>
+    <ul class="">
+        <li>Functions: Edit, delete and search for entries, Import entries from both local and Google drive</li>
+        <li>Design: Improving form input for adding and editing entries</li>
+        <li>Quality: Form validation</li>
+    </ul>
+    <hr class="my-4">
+    <p>Technologies used to build this application are Python, Flask, MongoDB, Bootstrap and a little bit of Google API.</p>
+    <p class="lead">
+    <!-- Place this tag where you want the button to render. -->
+    <a class="btn btn-primary btn-lg" href="https://github.com/annec22/simple_journal" role="button">View Code in GitHub</a>
+    </p>
+</div>
+
 {% endblock %}
