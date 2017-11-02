@@ -7,8 +7,8 @@
             Add Entry
         </a>
     </p>
-<div class="collapse container mb-2 bg-light p-4" id="new-entry">
-    <form id="new-entry-form" action="/new_entry" method="post">
+    <div class="collapse container mb-2 bg-secondary p-3 rounded" id="new-entry">
+        <form id="new-entry-form" action="/new_entry" method="post">
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" id="title" name="title" class="form-control">
@@ -17,13 +17,12 @@
             <label for="date-event">Date</label>
             <input type="date" id="date-event" name="date-event" class="form-control">
         </div>
-        <div class="form-group">
+            <div class="form-group">
             <label for="content">Content</label>
             <textarea cols="30" rows="10" id="content" class="form-control" name="content"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" id="submit-button">Save entry</button>
-    </form>
-
-</div>
+            <button type="submit" class="btn btn-primary" id="submit-button">Save entry</button>
+        </form>
+    </div>
     {% include  "entries.html" if active==true %}
 {% endblock %}
