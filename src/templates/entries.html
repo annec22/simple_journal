@@ -2,18 +2,25 @@
     {% if entries|length > 0 %}
         <div id="accordion" role="tablist">
         {% for entry in entries[::-1] %}
-            <div class="card my-10px">
+            <div class="card">
                 <div class="card-header" role="tab" id="headingOne">
-                  <h5 class="mb-0">
-                    <a data-toggle="collapse" href="#{{ entry._id }}" aria-expanded="true" aria-controls="{{ entry._id }}">
-                      {{ entry.title }}
-                    </a>
-                  </h5>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-10">
+                            <h5 class="p-0">
+                                <a data-toggle="collapse" href="#{{ entry._id }}" aria-expanded="true" aria-controls="{{ entry._id }}">
+                                {{ entry.title }}
+                                </a>
+                            </h5>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-2">
+                            <p class="text-muted">{{ entry.date_event }}</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div id="{{ entry._id }}" class="collapse" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                   <div class="card-body">
-                  <p class="text-muted xs">{{ entry.date_event }}</p>
+
                     <p>{{ entry.content }}</p>
                       <hr>
                     <p class="text-muted xs">Last Modified: {{ entry.date_last_modified }}</p>
@@ -23,15 +30,18 @@
 
         {% endfor %}
         </div>
-        <div class="container mt-4">
-            <a class="btn btn-primary" href="/save_to_local">
-                Download backup
-            </a>
-            <a class="g-savetodrive btn btn-success" href="#"
-               data-src="/save_to_local"
-               data-filename="my-entries.json"
-               data-sitename="Simple Journal">
-            </a>
+        <div class="container my-3">
+                    <a class="btn btn-primary btn-lg" href="/save_to_local">
+                        Download backup
+                    </a>
+            <button class="btn btn-success btn-lg">
+                 <a class="g-savetodrive btn btn-success btn-lg" href="#"
+                       data-src="/save_to_local"
+                       data-filename="my-entries.json"
+                       data-sitename="Simple Journal">
+                    </a>
+            </button>
+
         </div>
     {% else %}
         <p class="text-secondary" >No entries</p>
